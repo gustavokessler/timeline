@@ -4,8 +4,23 @@
 
     <!-- Professor -->
     <mat-tab label="Professor">
-      <div style="padding: 12px;">
-        professor
+      <div fxLayout="column"style="padding: 12px;">
+        <h2 fxFlexAlign="center">Modulo Professor do Timeline</h2>
+        <p class=".mat-caption" fxFlexAlign="center">Modulo Professor do Timeline</p>
+
+        <form fxLayout="column" fxFlex="100">
+          <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="professor@gmail.com">
+          </mat-form-field>
+          <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
+            <mat-label>Senha</mat-label>
+            <input matInput placeholder="professor@gmail.com" type="password">
+          </mat-form-field>
+        </form>
+        <div>
+          <button mat-raised-button color="primary">Entrar</button>
+        </div>
       </div>
     </mat-tab>
   </mat-tab-group>
