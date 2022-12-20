@@ -6,20 +6,23 @@
     <mat-tab label="Professor">
       <div fxLayout="column"style="padding: 12px;">
         <h2 fxFlexAlign="center">Modulo Professor do Timeline</h2>
-        <p class=".mat-caption" fxFlexAlign="center">Modulo Professor do Timeline</p>
+        <p class=".mat-caption" fxFlexAlign="center">Gerencie cartas, baralhos e crie partidas</p>
 
         <form fxLayout="column" fxFlex="100">
           <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
             <mat-label>Email</mat-label>
-            <input matInput placeholder="professor@gmail.com">
+            <input matInput placeholder="professor@gmail.com" [(ngModel)]="email" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
           <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
             <mat-label>Senha</mat-label>
-            <input matInput placeholder="professor@gmail.com" type="password">
+            <input matInput placeholder="professor@gmail.com" type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
           </mat-form-field>
         </form>
         <div>
-          <button mat-raised-button color="primary">Entrar</button>
+          <span *ngIf="errorLogin" style="color: red">Email ou Senha inválido</span>
+        </div>
+        <div>
+          <button mat-raised-button color="primary" (click)="login()">Entrar</button>
         </div>
       </div>
     </mat-tab>
