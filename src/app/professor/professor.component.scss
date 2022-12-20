@@ -1,0 +1,8 @@
+:host ::ng-deep .mat-list-item-content:hover {
+  // padding: 0 !important;
+  background-color: lightgrey;
+  cursor: pointer;
+}
+:host ::ng-deep .mat-list {
+  padding: 0 !important;
+}
