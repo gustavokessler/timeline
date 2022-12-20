@@ -5,10 +5,12 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
 import { ProfessorComponent } from './professor.component';
 import { ProfessorRoutingModule } from './professor-routing.module';
+import { DecksComponent } from './decks/decks.component';
 
 @NgModule({
   declarations: [
-    ProfessorComponent
+    ProfessorComponent,
+    DecksComponent
   ],
   imports: [
     CommonModule,
