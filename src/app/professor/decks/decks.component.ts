@@ -29,14 +29,25 @@ export class DecksComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openCardsModal(){
+  openCardsModal() {
     this.dialogRef.open(AddCardsToDeckComponent, {
       width: '80%',
       minHeight: 600,
       maxHeight: '90%',
       data: this.selectedDeck
-    });
+    }).afterClosed().subscribe(() => this.updateDecks());
   }
 
+  removeCardFromDeck(cardId: number) {
+    this.deckService.removeCardFromDeck(this.selectedDeck!.id, cardId).pipe(
+      tap(() => this.updateDecks())
+    ).subscribe()
+  }
+
+  updateDecks() {
+    this.decks$ = this.deckService.getProfessorDecks().pipe(
+      tap((decks) => this.selectedDeck = decks.find((deck) => deck.id === this.selectedDeck!.id))
+    )
+  }
 
 }

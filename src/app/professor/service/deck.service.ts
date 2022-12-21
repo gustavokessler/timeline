@@ -37,4 +37,11 @@ export class DeckService {
     return this.http.post<any>(environment.endPointHost + 'deck/card/' + deckId, { card: cardId}, {params: params})
   }
 
+  removeCardFromDeck(deckId: number, cardId: number){
+    const params = new HttpParams()
+      .append('professorId', this.professor!.id)
+      .append('cardId', cardId)
+    return this.http.delete<any>(environment.endPointHost + 'deck/card/' + deckId, {params: params})
+  }
+
 }

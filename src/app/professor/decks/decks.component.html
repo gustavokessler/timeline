@@ -31,7 +31,7 @@
       <!-- Cards on Deck Management -->
       <div fxLayout="column" fxFlex="80" style="height: 100%;">
         <div fxLayout="row" fxLayoutAlign="space-between" style="padding: 12px;">
-          <h2 style="margin-bottom: 0px;">Cartas no Baralhos</h2>
+          <h2 style="margin-bottom: 0px;">Cartas no Baralhos: {{selectedDeck?.name}}</h2>
           <button mat-raised-button color="primary" (click)="openCardsModal()">
             Adcionar Cartas
           </button>
@@ -44,7 +44,7 @@
               Adcionar Cartas
             </button>
           </div>
-          <app-card *ngFor="let card of selectedDeck.cards" [card]="card"></app-card>
+          <app-card *ngFor="let card of selectedDeck.cards" [card]="card" (removeCard)="removeCardFromDeck($event)" ></app-card>
         </div>
       </div>
     </div>
