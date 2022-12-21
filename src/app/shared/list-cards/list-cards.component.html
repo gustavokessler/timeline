@@ -5,12 +5,18 @@
       <h2 style="margin-bottom: 0px;">Baralho: {{deck.name}}</h2>
       <h4>Adicione cartas para esse baralho</h4>
     </div>
-    <form fxLayout="column" fxFlex="30">
-      <mat-form-field fxFlex="30" class="example-full-width" appearance="outline">
-        <mat-label>Buscar</mat-label>
-        <input matInput placeholder="Independencia do Brasil">
-      </mat-form-field>
-    </form>
+    <div fxFlex="40" fxLayout="row">
+
+      <form fxLayout="column" fxFlex="100" >
+        <mat-form-field class="example-full-width" appearance="outline">
+          <mat-label>Buscar</mat-label>
+          <input matInput placeholder="Independencia do Brasil" [(ngModel)]="filterText" [ngModelOptions]="{standalone: true}">
+          <button mat-icon-button color="primary" (click)="filter()" style="position: absolute; top: 0px; right: 0px;">
+            <mat-icon>search</mat-icon>
+          </button>
+        </mat-form-field>
+      </form>
+    </div>
   </div>
   <div fxLayout="row wrap" fxLayoutGap="12px grid"
     style=" padding: 12px; overflow: auto;  background-color: rgb(240, 240, 240)">
@@ -18,3 +24,4 @@
     <div style="width: 100%; height: 12px;"></div>
   </div>
 </div>
+

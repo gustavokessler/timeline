@@ -11,7 +11,10 @@ import { Deck } from '../models/deck.model';
 })
 export class AddCardsToDeckComponent implements OnInit {
 
+
+  unfilteredArray: Card[] = [];
   cardsToAdd: Card[] = []
+  filterText = '';
 
   constructor(
     public dialogRef: MatDialogRef<AddCardsToDeckComponent>,
@@ -22,7 +25,17 @@ export class AddCardsToDeckComponent implements OnInit {
   ngOnInit(): void {
     this.deckService.getAvailableCardsToDeck(this.deck.id).subscribe((res) => {
       this.cardsToAdd = res;
+      this.unfilteredArray = res;
     })
+  }
+
+  filter(){
+    if(this.filterText === '') {
+      this.cardsToAdd = this.unfilteredArray;
+      return;
+    }
+
+    this.cardsToAdd = this.unfilteredArray.filter((card) => card.name.toLocaleLowerCase().includes(this.filterText.toLocaleLowerCase()));
   }
 
 }
