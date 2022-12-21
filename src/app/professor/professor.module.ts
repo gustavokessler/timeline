@@ -12,6 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { NgModule } from '@angular/core';
 import { ProfessorComponent } from './professor.component';
 import { ProfessorRoutingModule } from './professor-routing.module';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ProfessorRoutingModule } from './professor-routing.module';
     FlexLayoutModule,
     MatIconModule,
     MatButtonModule,
+    SharedModule
   ]
 })
 export class ProfessorModule { }

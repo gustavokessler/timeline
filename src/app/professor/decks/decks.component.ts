@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/shared/auth.service';
 import { Deck } from 'src/app/shared/models/deck.model';
 import { DeckService } from '../service/deck.service';
+import { tap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-decks',
@@ -12,7 +13,9 @@ import { DeckService } from '../service/deck.service';
 export class DecksComponent implements OnInit {
 
 
-  decks$ = this.deckService.getProfessorDecks();
+  decks$ = this.deckService.getProfessorDecks().pipe(
+    tap((deck) => this.selectedDeck = deck[0])
+  );
   selectedDeck: Deck | undefined;
 
   constructor(
