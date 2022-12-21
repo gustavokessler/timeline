@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { DecksComponent } from './decks/decks.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
@@ -27,7 +28,7 @@ import { ProfessorRoutingModule } from './professor-routing.module';
     MatCardModule,
     FlexLayoutModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
   ]
 })
 export class ProfessorModule { }
