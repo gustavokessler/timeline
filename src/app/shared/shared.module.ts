@@ -1,4 +1,5 @@
 import { AddCardsToDeckComponent } from './list-cards/list-cards.component';
+import { AddDeckComponent } from './add-deck/add-deck.component';
 import { CardComponent } from './card/card.component';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
@@ -8,7 +9,6 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { NgModule } from '@angular/core';
-import { AddDeckComponent } from './add-deck/add-deck.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +26,6 @@ import { AddDeckComponent } from './add-deck/add-deck.component';
     FormsModule
   ],
   exports: [CardComponent, AddCardsToDeckComponent],
-  entryComponents: [AddCardsToDeckComponent]
+  entryComponents: [AddCardsToDeckComponent, AddDeckComponent]
 })
 export class SharedModule { }

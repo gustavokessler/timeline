@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { AddCardsToDeckComponent } from 'src/app/shared/list-cards/list-cards.component';
+import { AddDeckComponent } from 'src/app/shared/add-deck/add-deck.component';
 import { AuthService } from 'src/app/shared/auth.service';
 import { Deck } from 'src/app/shared/models/deck.model';
 import { DeckService } from '../service/deck.service';
@@ -32,6 +33,15 @@ export class DecksComponent implements OnInit {
   openCardsModal() {
     this.dialogRef.open(AddCardsToDeckComponent, {
       width: '80%',
+      minHeight: 600,
+      maxHeight: '90%',
+      data: this.selectedDeck
+    }).afterClosed().subscribe(() => this.updateDecks());
+  }
+
+  openEditDeckModal(){
+    this.dialogRef.open(AddDeckComponent, {
+      width: '50%',
       minHeight: 600,
       maxHeight: '90%',
       data: this.selectedDeck

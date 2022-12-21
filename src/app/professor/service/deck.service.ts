@@ -25,6 +25,12 @@ export class DeckService {
     return this.http.get<Deck[]>(environment.endPointHost + 'deck', {params: params});
   }
 
+  addDeck(deck: Deck){
+    const params = new HttpParams()
+      .append('professorId', this.professor!.id);
+    return this.http.post(environment.endPointHost + 'deck', deck,  {params: params});
+  }
+
   getAvailableCardsToDeck(deckId: number){
     const params = new HttpParams()
       .append('professorId', this.professor!.id);
