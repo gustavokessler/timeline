@@ -32,7 +32,7 @@
       <div fxLayout="column" fxFlex="80" style="height: 100%;">
         <div fxLayout="row" fxLayoutAlign="space-between" style="padding: 12px;">
           <h2 style="margin-bottom: 0px;">Cartas no Baralhos</h2>
-          <button mat-raised-button color="primary">
+          <button mat-raised-button color="primary" (click)="openCardsModal()">
             Adcionar Cartas
           </button>
         </div>
@@ -40,21 +40,11 @@
         <div *ngIf="selectedDeck" fxLayout="row wrap" fxLayoutGap="12px grid" style=" padding: 12px; height: 85%; overflow: auto;" >
           <div fxLayout="column" *ngIf="selectedDeck.cards.length == 0">
             <h3>Este baralho ainda não tem cartas</h3>
-            <button mat-raised-button color="primary">
+            <button mat-raised-button color="primary" (click)="openCardsModal()">
               Adcionar Cartas
             </button>
           </div>
           <app-card *ngFor="let card of selectedDeck.cards" [card]="card"></app-card>
-          <app-card *ngFor="let card of selectedDeck.cards" [card]="card"></app-card>
-          <app-card *ngFor="let card of selectedDeck.cards" [card]="card"></app-card>
-          <app-card *ngFor="let card of selectedDeck.cards" [card]="card"></app-card>
-          <app-card *ngFor="let card of selectedDeck.cards" [card]="card"></app-card>
-          <app-card *ngFor="let card of selectedDeck.cards" [card]="card"></app-card>
-          <app-card *ngFor="let card of selectedDeck.cards" [card]="card"></app-card>
-          <app-card *ngFor="let card of selectedDeck.cards" [card]="card"></app-card>
-          <app-card *ngFor="let card of selectedDeck.cards" [card]="card"></app-card>
-          <app-card *ngFor="let card of selectedDeck.cards" [card]="card"></app-card>
-
         </div>
       </div>
     </div>

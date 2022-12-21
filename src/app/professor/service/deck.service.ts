@@ -21,9 +21,7 @@ export class DeckService {
   getProfessorDecks(){
     const params = new HttpParams()
       .append('professorId', this.professor!.id);
-    return this.http.get<Deck[]>(environment.endPointHost + 'deck', {params: params}).pipe(
-      tap((res) => console.log(res))
-    )
+    return this.http.get<Deck[]>(environment.endPointHost + 'deck', {params: params});
   }
 
 }
