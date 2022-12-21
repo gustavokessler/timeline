@@ -14,15 +14,7 @@
   </div>
   <div fxLayout="row wrap" fxLayoutGap="12px grid"
     style=" padding: 12px; overflow: auto;  background-color: rgb(240, 240, 240)">
-    <app-card *ngFor="let card of deck.cards" [card]="card"></app-card>
-    <app-card *ngFor="let card of deck.cards" [card]="card"></app-card>
-    <app-card *ngFor="let card of deck.cards" [card]="card"></app-card>
-    <app-card *ngFor="let card of deck.cards" [card]="card"></app-card>
-    <app-card *ngFor="let card of deck.cards" [card]="card"></app-card>
-    <app-card *ngFor="let card of deck.cards" [card]="card"></app-card>
-    <app-card *ngFor="let card of deck.cards" [card]="card"></app-card>
-    <app-card *ngFor="let card of deck.cards" [card]="card"></app-card>
-    <app-card *ngFor="let card of deck.cards" [card]="card"></app-card>
+    <app-card *ngFor="let card of cardsToAdd" [card]="card" [addMode]="true" [deckId]="deck.id"></app-card>
     <div style="width: 100%; height: 12px;"></div>
   </div>
 </div>
