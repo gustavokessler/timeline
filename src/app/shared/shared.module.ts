@@ -1,3 +1,4 @@
+import { AddCardComponent } from './add-card/add-card.component';
 import { AddCardsToDeckComponent } from './list-cards/list-cards.component';
 import { AddDeckComponent } from './add-deck/add-deck.component';
 import { CardComponent } from './card/card.component';
@@ -14,7 +15,8 @@ import { NgModule } from '@angular/core';
   declarations: [
     CardComponent,
     AddCardsToDeckComponent,
-    AddDeckComponent
+    AddDeckComponent,
+    AddCardComponent
   ],
   imports: [
     CommonModule,
@@ -26,6 +28,6 @@ import { NgModule } from '@angular/core';
     FormsModule
   ],
   exports: [CardComponent, AddCardsToDeckComponent],
-  entryComponents: [AddCardsToDeckComponent, AddDeckComponent]
+  entryComponents: [AddCardsToDeckComponent, AddDeckComponent, AddCardComponent]
 })
 export class SharedModule { }
