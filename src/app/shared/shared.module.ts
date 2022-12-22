@@ -7,8 +7,10 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatNativeDateModule } from '@angular/material/core';
 import { NgModule } from '@angular/core';
 
 @NgModule({
@@ -25,7 +27,13 @@ import { NgModule } from '@angular/core';
     MatIconModule,
     FlexLayoutModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule
+  ],
+  providers: [
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [CardComponent, AddCardsToDeckComponent],
   entryComponents: [AddCardsToDeckComponent, AddDeckComponent, AddCardComponent]

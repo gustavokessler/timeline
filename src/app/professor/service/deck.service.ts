@@ -46,9 +46,23 @@ export class DeckService {
 
   removeCardFromDeck(deckId: number, cardId: number){
     const params = new HttpParams()
-      .append('professorId', this.professor!.id)
-      .append('cardId', cardId)
+    .append('professorId', this.professor!.id)
+    .append('cardId', cardId)
     return this.http.delete<any>(environment.endPointHost + 'deck/card/' + deckId, {params: params})
+  }
+
+  addNewCardToDeck(card: Card, deckId: number){
+    const params = new HttpParams()
+      .append('professorId', this.professor!.id);
+    card.professorId = this.professor!.id;
+    return this.http.post<any>(environment.endPointHost + 'deck/card/add/' + deckId, card, {params: params})
+  }
+
+  addNewCard(card: Card){
+    const params = new HttpParams()
+    .append('professorId', this.professor!.id);
+    card.professorId = this.professor!.id;
+    return this.http.post<any>(environment.endPointHost + 'cards', card)
   }
 
 }

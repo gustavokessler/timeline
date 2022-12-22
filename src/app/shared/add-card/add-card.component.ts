@@ -31,4 +31,27 @@ export class AddCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  addNewCardToDeck() {
+    this.deckSerivce.addNewCardToDeck(this.card, this.deckId).subscribe((res) => {
+      this.dialogRef.close()
+    }, (err) => this.response = {
+      error: true,
+      text: 'Houve algum problema ao adicionar a nova carta'
+    })
+  }
+
+  saveNewCard() {
+    this.deckSerivce.addNewCard(this.card).subscribe((res) => {
+      this.card = {
+        date: new Date(),
+        name: '',
+        description: '',
+        image: ''
+      }
+    }, (err) => this.response = {
+      error: true,
+      text: 'Houve algum problema ao adicionar a nova carta'
+    })
+  }
+
 }
