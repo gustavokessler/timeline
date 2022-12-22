@@ -32,9 +32,14 @@
       <div fxLayout="column" fxFlex="80" style="height: 100%;">
         <div fxLayout="row" fxLayoutAlign="space-between" style="padding: 12px;">
           <h2 style="margin-bottom: 0px;">Cartas no Baralhos: {{selectedDeck?.name}}</h2>
-          <button mat-raised-button color="primary" (click)="openCardsModal()">
-            Adcionar Cartas
-          </button>
+          <div>
+            <button mat-raised-button color="primary" style="margin-right: 6px;" (click)="openNewCardModal()">
+              Criar nova Carta
+            </button>
+            <button mat-raised-button color="primary" (click)="openCardsModal()">
+              Adcionar Cartas
+            </button>
+          </div>
         </div>
         <h4 *ngIf="!selectedDeck">Selecione um Baralho para ver detalhes de suas cartas</h4>
         <div *ngIf="selectedDeck" fxLayout="row wrap" fxLayoutGap="12px grid" style=" padding: 12px; height: 85%; overflow: auto;" >

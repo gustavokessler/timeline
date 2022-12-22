@@ -1,7 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, Inject } from '@angular/core';
 
 import { Card } from '../models/card.model';
 import { DeckService } from 'src/app/professor/service/deck.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-card',
@@ -9,7 +10,6 @@ import { DeckService } from 'src/app/professor/service/deck.service';
   styleUrls: ['./add-card.component.scss']
 })
 export class AddCardComponent implements OnInit {
-  @Input() deckId?: number;
   card: Card = {
     date: new Date(),
     name: '',
@@ -17,10 +17,15 @@ export class AddCardComponent implements OnInit {
     image: ''
   }
 
-
+  response = {
+    text: '',
+    error: false
+  }
 
   constructor(
-    private deckService: DeckService
+    public dialogRef: MatDialogRef<AddCardComponent>,
+    @Inject(MAT_DIALOG_DATA) public deckId: number,
+    private deckSerivce: DeckService
   ) { }
 
   ngOnInit(): void {

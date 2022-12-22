@@ -16,8 +16,6 @@ export class AddCardsToDeckComponent implements OnInit {
   cardsToAdd: Card[] = []
   filterText = '';
 
-  newCards: Card[] = [];
-
   constructor(
     public dialogRef: MatDialogRef<AddCardsToDeckComponent>,
     @Inject(MAT_DIALOG_DATA) public deck: Deck,
@@ -38,20 +36,6 @@ export class AddCardsToDeckComponent implements OnInit {
     }
 
     this.cardsToAdd = this.unfilteredArray.filter((card) => card.name.toLocaleLowerCase().includes(this.filterText.toLocaleLowerCase()));
-  }
-
-  generateNewCard() {
-    this.newCards.push(
-      {
-        id: 1,
-        date: new Date(),
-        description: '',
-        name: '',
-        image: '',
-        professorId: 1,
-        deletedAt: null
-      }
-    )
   }
 
 }
