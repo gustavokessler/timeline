@@ -1,1 +1,28 @@
-<p>add-card works!</p>
+<mat-card *ngIf="card" class="mat-elevation-z8"  style="max-width: 300px;">
+
+  <mat-card-header>
+    <mat-card-title>
+      <mat-form-field fxFlex="100" class="example-full-width" appearance="fill">
+        <mat-label>Nome da carta</mat-label>
+        <input matInput placeholder="História completa" [(ngModel)]="card.name" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+    </mat-card-title>
+    <mat-card-subtitle>{{card.date | date: 'dd/MM/yyyy'}}</mat-card-subtitle>
+  </mat-card-header>
+  <img matCardImage [src]="card.image">
+  <mat-card-content style="height: 100px; overflow: auto;">
+    {{card.description}}
+  </mat-card-content>
+
+  <mat-card-actions  fxLayout="row" fxLayoutAlign="space-between">
+    <button mat-button color="success">
+      Adicionar ao Baralho
+    </button>
+
+    <div>
+      <button mat-icon-button color="primary">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

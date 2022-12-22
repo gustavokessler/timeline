@@ -7,10 +7,11 @@
     </div>
     <div fxFlex="40" fxLayout="row">
 
-      <form fxLayout="column" fxFlex="100" >
+      <form fxLayout="column" fxFlex="100">
         <mat-form-field class="example-full-width" appearance="outline">
           <mat-label>Buscar</mat-label>
-          <input matInput placeholder="Independencia do Brasil" [(ngModel)]="filterText" [ngModelOptions]="{standalone: true}">
+          <input matInput placeholder="Independencia do Brasil" [(ngModel)]="filterText"
+            [ngModelOptions]="{standalone: true}">
           <button mat-icon-button color="primary" (click)="filter()" style="position: absolute; top: 0px; right: 0px;">
             <mat-icon>search</mat-icon>
           </button>
@@ -20,8 +21,16 @@
   </div>
   <div fxLayout="row wrap" fxLayoutGap="12px grid"
     style=" padding: 12px; overflow: auto;  background-color: rgb(240, 240, 240)">
+    <div fxLayout="column" fxLayoutAlign="center center" style="padding: 6px;">
+      <button mat-icon-button aria-label="Example icon button with a vertical three dot icon" (click)="generateNewCard()">
+        <mat-icon>add</mat-icon>
+      </button>
+      <h4>Criar carta</h4>
+    </div>
+    <!-- new Cards -->
+    <app-add-card *ngFor="let card of newCards" [deckId]="deck.id"></app-add-card>
+    <!-- Save Cards -->
     <app-card *ngFor="let card of cardsToAdd" [card]="card" [addMode]="true" [deckId]="deck.id"></app-card>
     <div style="width: 100%; height: 12px;"></div>
   </div>
 </div>
-

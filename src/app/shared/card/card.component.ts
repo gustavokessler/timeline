@@ -29,6 +29,6 @@ export class CardComponent implements OnInit {
   }
 
   addToDeck(){
-    this.deckService.addCardToDeck(this.deckId!, this.card!.id).subscribe((res) => this.isOnDeck = true);
+    this.deckService.addCardToDeck(this.deckId!, this.card!.id!).subscribe((res) => this.isOnDeck = true);
   }
 }
