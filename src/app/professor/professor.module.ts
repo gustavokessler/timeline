@@ -14,11 +14,13 @@ import { NgModule } from '@angular/core';
 import { ProfessorComponent } from './professor.component';
 import { ProfessorRoutingModule } from './professor-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { GameManagementComponent } from './game-management/game-management.component';
 
 @NgModule({
   declarations: [
     ProfessorComponent,
-    DecksComponent
+    DecksComponent,
+    GameManagementComponent
   ],
   imports: [
     CommonModule,
