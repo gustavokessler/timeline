@@ -10,6 +10,12 @@ import { Deck } from '../models/deck.model';
 })
 export class AddDeckComponent implements OnInit {
 
+  response = {
+    text: '',
+    error: false
+  }
+
+
   constructor(
     public dialogRef: MatDialogRef<AddDeckComponent>,
     @Inject(MAT_DIALOG_DATA) public deck: Deck,
@@ -17,6 +23,18 @@ export class AddDeckComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+  }
+
+  createDeck(){
+    this.deckSerivce.addDeck(this.deck).subscribe(() => {
+      this.response = {
+        error: false,
+        text: 'Novo baralho adicionado com sucesso.'
+      }
+    }, (err) => this.response = {
+      error: true,
+      text: 'Houve algum problema para cadastrar o baralho.'
+    })
   }
 
 }

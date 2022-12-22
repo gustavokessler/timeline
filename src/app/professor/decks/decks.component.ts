@@ -31,6 +31,7 @@ export class DecksComponent implements OnInit {
   }
 
   openCardsModal() {
+
     this.dialogRef.open(AddCardsToDeckComponent, {
       width: '80%',
       minHeight: 600,
@@ -39,12 +40,11 @@ export class DecksComponent implements OnInit {
     }).afterClosed().subscribe(() => this.updateDecks());
   }
 
-  openEditDeckModal(){
+  openEditDeckModal(isNew?: boolean){
     this.dialogRef.open(AddDeckComponent, {
-      width: '50%',
-      minHeight: 600,
+      width: '400px',
       maxHeight: '90%',
-      data: this.selectedDeck
+      data: isNew ? {} : this.selectedDeck
     }).afterClosed().subscribe(() => this.updateDecks());
   }
 

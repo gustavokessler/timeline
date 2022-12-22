@@ -26,6 +26,7 @@ export class DeckService {
   }
 
   addDeck(deck: Deck){
+    deck.professorId = this.professor!.id;
     const params = new HttpParams()
       .append('professorId', this.professor!.id);
     return this.http.post(environment.endPointHost + 'deck', deck,  {params: params});
