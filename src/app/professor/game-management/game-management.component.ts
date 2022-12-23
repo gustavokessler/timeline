@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { DeckService } from 'src/app/professor/service/deck.service';
+
 @Component({
   selector: 'app-game-management',
   templateUrl: './game-management.component.html',
@@ -7,7 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameManagementComponent implements OnInit {
 
-  constructor() { }
+  games$ = this.deckService.getProfessorGames();
+
+  displayedColumns: string[] = ['id', 'name', 'deck', 'uid'];
+
+  constructor(
+    private deckService: DeckService
+  ) { }
 
   ngOnInit(): void {
   }
