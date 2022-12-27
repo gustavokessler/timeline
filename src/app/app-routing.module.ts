@@ -5,7 +5,8 @@ import { NgModule } from '@angular/core';
 
 const routes: Routes = [
   {path: "", loadChildren: ()=> import('./home/home.module').then(m => m.HomeModule)},
-  {path: "professor", loadChildren: ()=> import('./professor/professor.module').then(m => m.ProfessorModule), canActivate: [CanActiveProfessor]}
+  {path: "professor", loadChildren: ()=> import('./professor/professor.module').then(m => m.ProfessorModule), canActivate: [CanActiveProfessor]},
+  {path: "game", loadChildren: ()=> import('./game/game.module').then(m => m.GameModule)}
 ];
 
 @NgModule({
