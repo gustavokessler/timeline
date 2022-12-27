@@ -22,7 +22,7 @@
           <mat-card *ngFor="let deck of decks" class="mat-elevation-z8" style="margin-bottom: 6px; cursor: pointer;" (click)="selectedDeck = deck">
             <h3> {{deck.id}} - {{deck.name}} </h3>
             <p>{{deck.description}}</p>
-            <p>Total de cartas: {{deck.cards?.length}}</p>
+            <p>Total de cartas: {{deck.cards? deck.cards.length : '0'}}</p>
           </mat-card>
           <div style="width: 100%; height: 42px;"></div>
         </div>
@@ -33,7 +33,7 @@
         <div fxLayout="row" fxLayoutAlign="space-between" style="padding: 12px;">
           <h2 style="margin-bottom: 0px;">Cartas no Baralhos: {{selectedDeck?.name}}</h2>
           <div>
-            <button mat-raised-button color="primary" style="margin-right: 6px;" (click)="openNewCardModal()">
+            <button [disabled]="!selectedDeck" mat-raised-button color="primary" style="margin-right: 6px;" (click)="openNewCardModal()">
               Criar nova Carta
             </button>
             <button mat-raised-button color="primary" (click)="openCardsModal()">
@@ -43,7 +43,7 @@
         </div>
         <h4 *ngIf="!selectedDeck">Selecione um Baralho para ver detalhes de suas cartas</h4>
         <div *ngIf="selectedDeck" fxLayout="row wrap" fxLayoutGap="12px grid" style=" padding: 12px; height: 85%; overflow: auto;" >
-          <div fxLayout="column" *ngIf="selectedDeck.cards.length == 0">
+          <div fxLayout="column" *ngIf="selectedDeck.cards?.length == 0">
             <h3>Este baralho ainda não tem cartas</h3>
             <button mat-raised-button color="primary" (click)="openCardsModal()">
               Adcionar Cartas

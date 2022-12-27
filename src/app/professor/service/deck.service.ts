@@ -70,7 +70,13 @@ export class DeckService {
   getProfessorGames() {
     const params = new HttpParams()
       .append('professorId', this.professor!.id);
-    return this.http.get<Game[]>(environment.endPointHost + 'game', { params })
-
-  }
+      return this.http.get<Game[]>(environment.endPointHost + 'game', { params })
+      
+    }
+    
+    saveGame(game: Game){
+      const params = new HttpParams()
+      .append('professorId', this.professor!.id);
+      return this.http.post(environment.endPointHost + 'game', game, {params} )
+    }
 }

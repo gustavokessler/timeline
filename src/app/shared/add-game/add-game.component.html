@@ -1,0 +1,24 @@
+<div fxLayout="column" style="width: 100%; height: 100%;">
+    <h2>Criar nova carta</h2>
+  
+    <form fxLayout="column" fxFlex="100">
+      <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
+        <mat-label>Nome da carta</mat-label>
+        <input matInput placeholder="História completa" [(ngModel)]="game.name" [ngModelOptions]="{standalone: true}">
+      </mat-form-field>
+  
+      <mat-form-field appearance="outline">
+        <mat-label>Baralho</mat-label>
+        <mat-select [(ngModel)]="game.deckId" [ngModelOptions]="{standalone: true}">
+          <mat-option *ngFor="let deck of (decks$ | async)" [value]="deck.id">
+            {{deck.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+  
+    </form>
+    <h3 *ngIf="response.error" style="color: brown;">{{response.text}}</h3>
+    <h3 *ngIf="!response.error" style="color: green;">{{response.text}}</h3>
+    <button mat-raised-button color="primary" (click)="saveGame()">Salvar</button>
+  </div>
+  

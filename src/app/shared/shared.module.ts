@@ -12,13 +12,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { NgModule } from '@angular/core';
-
+import { AddGameComponent } from './add-game/add-game.component';
+import { MatSelectModule } from '@angular/material/select';
 @NgModule({
   declarations: [
     CardComponent,
     AddCardsToDeckComponent,
     AddDeckComponent,
-    AddCardComponent
+    AddCardComponent,
+    AddGameComponent
   ],
   imports: [
     CommonModule,
@@ -29,13 +31,14 @@ import { NgModule } from '@angular/core';
     MatInputModule,
     FormsModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSelectModule
   ],
   providers: [
     MatDatepickerModule,
     MatNativeDateModule
   ],
-  exports: [CardComponent, AddCardsToDeckComponent],
-  entryComponents: [AddCardsToDeckComponent, AddDeckComponent, AddCardComponent]
+  exports: [CardComponent, AddCardsToDeckComponent, AddGameComponent],
+  entryComponents: [AddCardsToDeckComponent, AddDeckComponent, AddCardComponent, AddGameComponent]
 })
 export class SharedModule { }

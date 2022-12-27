@@ -63,8 +63,15 @@ export class DecksComponent implements OnInit {
   }
 
   updateDecks() {
+    console.log('teste');
     this.decks$ = this.deckService.getProfessorDecks().pipe(
-      tap((decks) => this.selectedDeck = decks.find((deck) => deck.id === this.selectedDeck!.id))
+      tap((decks) => {
+        if (this.selectedDeck) {
+          this.selectedDeck = decks.find((deck) => deck.id === this.selectedDeck!.id)
+        } else if(decks.length > 0) {
+          this.selectedDeck = decks[0]
+        }
+      })
     )
   }
 
