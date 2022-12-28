@@ -37,6 +37,8 @@ export class GameComponent implements OnInit {
   deck: Card[] = []
   timeline: Card[] = []
 
+  selectedCard: Card | undefined;
+
   constructor(
     private gameService: GameService,
     private activedRoute: ActivatedRoute
@@ -47,6 +49,29 @@ export class GameComponent implements OnInit {
 
   shufleDeck(deck: Card[]){
     return deck.sort(() => Math.random() - 0.5)
+  }
+
+  selectCard(card: Card){
+    this.selectedCard = card;
+  }
+
+  setCardOnTimeLine(index: number){
+    console.log(index)
+    if(index ===  -1){
+      if(!this.gtDate(this.selectedCard!.date, this.timeline[0].date)){
+        this.timeline.unshift(this.selectedCard!)
+        this.hand = this.hand.filter((card) => card.id !== this.selectedCard!.id )
+        this.selectedCard = undefined;
+      }
+    }else if(this.gtDate(this.selectedCard!.date, this.timeline[index].date)){
+      this.timeline.splice(index +1, 0, this.selectedCard!)
+      this.hand = this.hand.filter((card) => card.id !== this.selectedCard!.id )
+      this.selectedCard = undefined;
+    }
+  }
+
+  gtDate(date1: Date, date2: Date){
+    return new Date(date1).getTime() > new Date(date2).getTime()
   }
 
 }
