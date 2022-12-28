@@ -1,1 +1,13 @@
-<p>game works!</p>
+<div  style="width: 100%; height: 100%; overflow: hidden; background-color: aquamarine;">
+    <div *ngIf="(game$ | async) as game; else notFound" style="width: 100%; height: 100%; overflow: hidden;">
+        <div fxLayout="row" fxLayoutAlign="center center" style="height: 100px; width: 100%; background-color: black; position: fixed; bottom: 0;"></div>
+        
+    </div>
+
+    <ng-template #notFound>
+        <div>
+            <h1>Jogo não encontrado!</h1>
+            <h2>Modifique o código e tente novamente</h2>
+        </div>
+    </ng-template>
+</div>
