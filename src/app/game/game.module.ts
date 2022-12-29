@@ -8,12 +8,15 @@ import { MatCardModule } from '@angular/material/card';
 import { GameCardComponent } from './game-card/game-card.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { HowToPlayComponent } from './how-to-play/how-to-play.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
   declarations: [
     GameComponent,
-    GameCardComponent
+    GameCardComponent,
+    HowToPlayComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +24,11 @@ import { MatButtonModule } from '@angular/material/button';
     FlexLayoutModule,
     MatCardModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
+  ],
+  entryComponents: [
+    HowToPlayComponent
   ]
 })
 export class GameModule { }
