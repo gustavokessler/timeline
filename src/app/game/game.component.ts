@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute } from '@angular/router';
 import { of } from 'rxjs';
 import { catchError, filter, map, switchMap, tap } from 'rxjs/operators';
 import { Card } from '../shared/models/card.model';
 import { Game } from '../shared/models/game.model';
 import { GameService } from './game.service';
+import { HowToPlayComponent } from './how-to-play/how-to-play.component';
 
 @Component({
   selector: 'app-game',
@@ -46,10 +48,17 @@ export class GameComponent implements OnInit {
 
   constructor(
     private gameService: GameService,
-    private activedRoute: ActivatedRoute
+    private activedRoute: ActivatedRoute,
+    private matDialog: MatDialog
   ) { }
 
   ngOnInit(): void {
+  }
+
+  openHowToPlay(){
+    this.matDialog.open(HowToPlayComponent, {
+      width: '600px'
+    })
   }
 
   shufleDeck(deck: Card[]) {
