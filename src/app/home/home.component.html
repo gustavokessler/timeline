@@ -1,10 +1,24 @@
 <div class="container" fxLayout="column" fxLayoutAlign="center center">
   <mat-tab-group mat-stretch-tabs="false" mat-align-tabs="start" class="select-panel mat-elevation-z4">
-    <mat-tab label="Jogar">Jogar</mat-tab>
+    <mat-tab label="Jogar">
+      <div fxLayout="column" style="padding: 12px;">
+        <h2 fxFlexAlign="center">Jogue o Timeline!!</h2>
+        <p class=".mat-caption" fxFlexAlign="center">Insira o código de partida para iniciar</p>
+        <form fxLayout="column" fxFlex="100">
+          <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
+            <mat-label>Código da partida</mat-label>
+            <input matInput placeholder="01GN8K01N1ZVBAD8KCWSRCZD41" [(ngModel)]="gameID" [ngModelOptions]="{standalone: true}">
+          </mat-form-field>
+        </form>
+        <div>
+          <button mat-raised-button color="primary" (click)="enterGame()">Entrar</button>
+        </div>
+      </div>
+    </mat-tab>
 
     <!-- Professor -->
     <mat-tab label="Professor">
-      <div fxLayout="column"style="padding: 12px;">
+      <div fxLayout="column" style="padding: 12px;">
         <h2 fxFlexAlign="center">Modulo Professor do Timeline</h2>
         <p class=".mat-caption" fxFlexAlign="center">Gerencie cartas, baralhos e crie partidas</p>
 
@@ -15,7 +29,8 @@
           </mat-form-field>
           <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
             <mat-label>Senha</mat-label>
-            <input matInput placeholder="professor@gmail.com" type="password" [(ngModel)]="password" [ngModelOptions]="{standalone: true}">
+            <input matInput placeholder="professor@gmail.com" type="password" [(ngModel)]="password"
+              [ngModelOptions]="{standalone: true}">
           </mat-form-field>
         </form>
         <div>

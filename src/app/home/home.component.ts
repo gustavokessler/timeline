@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
 
   errorLogin = false;
 
+  gameID = '';
+
   constructor(
     private authService: AuthService,
     private router: Router
@@ -24,6 +26,10 @@ export class HomeComponent implements OnInit {
     if(this.authService.professor){
       this.navigateToProfessorModule();
     }
+  }
+
+  enterGame(){
+    this.router.navigateByUrl('/game?code=' + this.gameID);
   }
 
   login(){
