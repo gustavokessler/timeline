@@ -1,0 +1,15 @@
+<div style="background-color: rgb(212, 211, 211); height: 100%; overflow: hidden;" fxLayout="row"
+    fxLayoutAlign="center center">
+    <mat-card class="mat-elevation-z4" fxLayout="column" fxFlex="60">
+
+        <h1>Entre em uma partida</h1>
+        <form fxLayout="column" fxFlex="100">
+            <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
+                <mat-label>Código da partida</mat-label>
+                <input matInput placeholder="01GN8K01N1ZVBAD8KCWSRCZD41" [(ngModel)]="gameID"
+                    [ngModelOptions]="{standalone: true}">
+            </mat-form-field>
+        </form>
+        <button mat-raised-button (click)="enterGame()" color="primary">Entrar</button>
+    </mat-card>
+</div>

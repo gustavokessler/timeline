@@ -16,12 +16,17 @@ import { NgModule } from '@angular/core';
 import { ProfessorComponent } from './professor.component';
 import { ProfessorRoutingModule } from './professor-routing.module';
 import { SharedModule } from '../shared/shared.module';
+import { GameLoginComponent } from './game-login/game-login.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
     ProfessorComponent,
     DecksComponent,
-    GameManagementComponent
+    GameManagementComponent,
+    GameLoginComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +41,10 @@ import { SharedModule } from '../shared/shared.module';
     MatButtonModule,
     SharedModule,
     MatDialogModule,
-    MatTableModule
+    MatTableModule,
+    MatFormFieldModule,
+    FormsModule,
+    MatInputModule,
   ]
 })
 export class ProfessorModule { }

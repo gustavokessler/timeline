@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { tap } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 export interface Professor {
   id: number;
@@ -14,15 +17,26 @@ export class AuthService {
 
   professor: Professor | null = null;
 
-  constructor() {
+  constructor(
+    private http: HttpClient
+  ) {
     const professorString = localStorage.getItem('professor');
     if (professorString) {
       this.professor = JSON.parse(professorString);
     }
   }
 
-  setLogin(professor: Professor){
+  login(email: string, password: string) {
+    return this.http.post<Professor>(environment.endPointHost + "auth/login", {
+      email, password
+    }).pipe(
+      tap((professor) => this.setLogin(professor))
+    )
+  }
+
+  setLogin(professor: Professor) {
     this.professor = professor;
+    localStorage.setItem('professor', JSON.stringify(professor));
   }
 
 

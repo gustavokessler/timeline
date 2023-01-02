@@ -15,6 +15,8 @@ export class HomeComponent implements OnInit {
 
   errorLogin = false;
 
+  gameID = '';
+
   constructor(
     private authService: AuthService,
     private router: Router
@@ -26,23 +28,17 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  enterGame(){
+    this.router.navigateByUrl('/game?code=' + this.gameID);
+  }
+
   login(){
-    if(this.email === "admin@teste.com" && this.password === "teste1234"){
-      const professor = {
-        email: this.email,
-        name: 'admin',
-        id: 1
-      }
-      this.authService.setLogin(professor);
-      localStorage.setItem('professor', JSON.stringify(professor));
+    this.authService.login(this.email, this.password).subscribe((res) => {
       this.navigateToProfessorModule();
-    }else{
-      this.errorLogin = true;
-    }
+    }, () => this.errorLogin = true)
   }
 
   navigateToProfessorModule(){
-    console.log('aaa')
     this.router.navigate(['/professor']);
   }
 
