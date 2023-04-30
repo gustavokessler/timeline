@@ -17,7 +17,7 @@ export class AddGameComponent implements OnInit {
   }
 
   decks$ = this.deckService.getProfessorDecks().pipe(
-    map((decks) => decks.filter((d) => d.cards.length > 0))
+    map((decks) => decks.filter((d) => d.cards.length > 5))
   );
 
   game: Game = {}

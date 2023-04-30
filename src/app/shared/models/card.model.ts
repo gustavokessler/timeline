@@ -5,5 +5,5 @@ export interface Card{
   description: string;
   name: string;
   image: string;
-  date: string;
+  date: number;
 }

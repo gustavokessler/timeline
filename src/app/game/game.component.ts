@@ -73,6 +73,7 @@ export class GameComponent implements OnInit {
 
   // TODO fix logic of positioning
   setCardOnTimeLine(index: number) {
+    console.log(index);
     if (index === -1) {
       if (!this.gtDate(this.selectedCard!.date, this.timeline[0].date)) {
         this.succesPut(-1)
@@ -129,7 +130,7 @@ export class GameComponent implements OnInit {
     }
   }
 
-  gtDate(date1: string, date2: string) {
+  gtDate(date1: number, date2: number) {
     return +date1 > +date2;
     return new Date(date1).getTime() > new Date(date2).getTime()
   }
