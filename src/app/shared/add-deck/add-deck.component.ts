@@ -31,6 +31,7 @@ export class AddDeckComponent implements OnInit {
         error: false,
         text: 'Novo baralho adicionado com sucesso.'
       }
+      this.dialogRef.close()
     }, (err) => this.response = {
       error: true,
       text: 'Houve algum problema para cadastrar o baralho.'
