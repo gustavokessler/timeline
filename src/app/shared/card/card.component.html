@@ -2,7 +2,7 @@
 
   <mat-card-header>
     <mat-card-title>{{card.name}}</mat-card-title>
-    <mat-card-subtitle>{{card.date | date: 'dd/MM/yyyy'}}</mat-card-subtitle>
+    <mat-card-subtitle>{{card.date | date: 'yyyy'}}</mat-card-subtitle>
   </mat-card-header>
   <img matCardImage [src]="card.image" style="max-height: 190px;">
   <mat-card-content style="height: 100px; overflow: auto;">

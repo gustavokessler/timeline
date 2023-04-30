@@ -129,7 +129,8 @@ export class GameComponent implements OnInit {
     }
   }
 
-  gtDate(date1: Date, date2: Date) {
+  gtDate(date1: string, date2: string) {
+    return +date1 > +date2;
     return new Date(date1).getTime() > new Date(date2).getTime()
   }
 

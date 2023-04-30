@@ -5,3 +5,13 @@
   outline:none;
   background:transparent;
 }
+
+:host ::ng-deep dmat-form-field .mat-form-field {
+  &-underline {
+    position: relative;
+    bottom: auto;
+  }
+  &-subscript-wrapper {
+    position: static;
+  }
+}
