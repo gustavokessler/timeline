@@ -2,7 +2,7 @@
   <span>Timeline Professor</span>
 </mat-toolbar>
 <mat-drawer-container class="example-container" autosize style="width: 100%; height: calc(100% - 64px);">
-  <mat-drawer opened class="example-sidenav" mode="side" style="min-width: 200px;">
+  <mat-drawer opened class="example-sidenav" mode="side" style="min-width: 200px; background-color: #4169e1;" >
     <mat-list role="list">
       <mat-list-item role="listitem" routerLink="decks">Baralhos</mat-list-item>
       <mat-list-item role="listitem" routerLink="game">Jogos</mat-list-item>
@@ -10,7 +10,9 @@
     </mat-list>
   </mat-drawer>
 
-  <div style="height: 100%;">
-    <router-outlet></router-outlet>
-  </div>
+  <mat-drawer-content>
+    <div style="height: 100%; background-color: whitesmoke;">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-drawer-content>
 </mat-drawer-container>

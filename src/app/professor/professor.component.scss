@@ -1,8 +1,16 @@
 :host ::ng-deep .mat-list-item-content:hover {
   // padding: 0 !important;
-  background-color: lightgrey;
+  background-color: #3f51b5;
   cursor: pointer;
 }
+
+:host ::ng-deep .mat-list-item-content {
+  // padding: 0 !important;
+  color: white;
+  font-weight: 600;
+  // cursor: pointer;
+}
+
 :host ::ng-deep .mat-list {
   padding: 0 !important;
 }
