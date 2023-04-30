@@ -1,7 +1,7 @@
-<div style="background-color: rgb(212, 211, 211); height: 100%; overflow: hidden;" fxLayout="row"
+<div style=" height: 100%; overflow: hidden;" fxLayout="row"
   fxLayoutAlign="center center">
-  <mat-card class="mat-elevation-z4" fxLayout="column" fxFlex="60"
-    style="height: 98%; padding: 0!important;  overflow: hidden; background-color: rgb(240, 240, 240);">
+  <mat-card class="mat-elevation-z4" fxLayout="column" fxFlex="98"
+    style="height: 98%; padding: 0!important;  overflow: hidden;">
 
     <div style="padding: 12px;" fxLayout="row" fxLayoutAlign="space-between">
       <h2>Gerenciamento de jogos</h2>
@@ -9,7 +9,7 @@
     </div>
     <mat-divider></mat-divider>
 
-    <div fxLayout="column" style="padding: 12px; height: 100%;">
+    <div fxLayout="column" style="padding: 12px; height: 100%; overflow: auto;">
       <table *ngIf="(games$ | async) as games" mat-table [dataSource]="games" class="mat-elevation-z8">
 
         <!--- Note that these columns can be defined in any order.
