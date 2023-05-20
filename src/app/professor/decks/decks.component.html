@@ -33,7 +33,7 @@
       </div>
 
       <!-- Cards on Deck Management -->
-      <div fxLayout="column" fxFlex="80" style="height: 100%;">
+      <div fxLayout="column" fxFlex="80" style="height: 100%; padding-bottom: 18px;">
         <div fxLayout="row" fxLayoutAlign="space-between" style="padding: 12px;">
           <h2 style="margin-bottom: 0px;">Cartas no Baralhos: {{selectedDeck?.name}}</h2>
           <div>
@@ -54,7 +54,6 @@
             </button>
           </div>
           <app-card *ngFor="let card of selectedDeck.cards" [card]="card" (removeCard)="removeCardFromDeck($event)" ></app-card>
-          <div style="width: 100%; height: 68px;"></div>
         </div>
       </div>
     </div>
