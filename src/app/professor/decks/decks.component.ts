@@ -33,7 +33,7 @@ export class DecksComponent implements OnInit {
 
   openNewCardModal() {
     this.dialogRef.open(AddCardComponent, {
-      width: '400px',
+      width: '600px',
       maxHeight: '90%',
       data: this.selectedDeck!.id
     }).afterClosed().subscribe(() => this.updateDecks());
@@ -43,7 +43,7 @@ export class DecksComponent implements OnInit {
     this.dialogRef.open(AddCardsToDeckComponent, {
       width: '80%',
       minHeight: 600,
-      maxHeight: '90%',
+      maxHeight: '600px',
       data: this.selectedDeck
     }).afterClosed().subscribe(() => this.updateDecks());
   }

@@ -11,7 +11,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class AddCardComponent implements OnInit {
   card: Card = {
-    date: new Date(),
+    date: 0,
     name: '',
     description: '',
     image: ''
@@ -43,7 +43,7 @@ export class AddCardComponent implements OnInit {
   saveNewCard() {
     this.deckSerivce.addNewCard(this.card).subscribe((res) => {
       this.card = {
-        date: new Date(),
+        date: 0,
         name: '',
         description: '',
         image: ''

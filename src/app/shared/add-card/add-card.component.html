@@ -1,35 +1,37 @@
 <div fxLayout="column" style="width: 100%; height: 100%;">
   <h2>Criar nova carta</h2>
 
-  <form fxLayout="column" fxFlex="100">
+  <form fxLayout="column" fxFlex="100" style="margin-bottom: 8px;">
     <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
       <mat-label>Nome da carta</mat-label>
       <input matInput placeholder="História completa" [(ngModel)]="card.name" [ngModelOptions]="{standalone: true}">
     </mat-form-field>
 
-    <mat-form-field appearance="outline">
-      <mat-label>Choose a date</mat-label>
-      <input matInput [matDatepicker]="picker" [(ngModel)]="card.date" [ngModelOptions]="{standalone: true}">
-      <mat-hint>DD/MM/YYYY</mat-hint>
-      <mat-datepicker-toggle matIconSuffix [for]="picker" style="position: absolute; right: 0; top: 0;">
-        <mat-icon matDatepickerToggleIcon>keyboard_arrow_down</mat-icon>
-      </mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+
+    <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
+      <mat-label>Data</mat-label>
+      <input matInput placeholder="História completa" [(ngModel)]="card.date" [ngModelOptions]="{standalone: true}">
+      <mat-hint>Data do evento, infomar apenas o ano.</mat-hint>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
       <mat-label>Descrição</mat-label>
-      <textarea matInput [(ngModel)]="card.description" [ngModelOptions]="{standalone: true}" ></textarea>
+      <textarea matInput [(ngModel)]="card.description" [ngModelOptions]="{standalone: true}"></textarea>
+      <mat-hint>Descrição sobre o evento para estimular o aprendizado durante o jogo.</mat-hint>
     </mat-form-field>
 
     <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
       <mat-label>Link da imagem</mat-label>
       <input matInput placeholder="Link da imagem" [(ngModel)]="card.image" [ngModelOptions]="{standalone: true}">
+      <mat-hint>Utilizar imagens no formato 2:1 ex: 800x400px. <br>Não somos responsáveis pelos direitos autorais das imagems. Por favor, utilize imagens próprias ou sem
+        direitos autorais.</mat-hint>
+
     </mat-form-field>
 
   </form>
   <h3 *ngIf="response.error" style="color: brown;">{{response.text}}</h3>
   <h3 *ngIf="!response.error" style="color: green;">{{response.text}}</h3>
-  <button *ngIf="deckId" mat-raised-button color="primary" style="margin-bottom: 6px;" (click)="addNewCardToDeck()">Salvar e adicionar ao Baralho</button>
+  <button *ngIf="deckId" mat-raised-button color="primary" style="margin-bottom: 6px;"
+    (click)="addNewCardToDeck()">Salvar e adicionar ao Baralho</button>
   <button mat-raised-button (click)="saveNewCard()">Salvar</button>
 </div>

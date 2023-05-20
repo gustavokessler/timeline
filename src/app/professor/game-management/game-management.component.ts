@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { map } from 'rxjs/operators';
 
 import { DeckService } from 'src/app/professor/service/deck.service';
 import { AddGameComponent } from 'src/app/shared/add-game/add-game.component';
