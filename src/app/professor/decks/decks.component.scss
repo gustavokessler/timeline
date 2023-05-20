@@ -1,4 +1,57 @@
 :host ::ng-deep .mat-card-header-text {
-    /* CSS styles go here */
-    margin: 0px ; // for example to remove the margin
+  /* CSS styles go here */
+  margin: 0px; // for example to remove the margin
+}
+
+.grid-container {
+  marging: 0px;
+  display: grid;
+  gap: 8px
+}
+
+@media (min-width: 521px) {
+  .grid-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+
+@media (min-width: 800px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+// @media (min-width: 800px){
+//   .grid-container {grid-template-columns: repeat(4, 1fr);}
+// }
+
+@media (min-width: 1000px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+@media (min-width: 1320px) {
+  .grid-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1520px) {
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1820px) {
+  .grid-container {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+@media (min-width: 2120px) {
+  .grid-container {
+    grid-template-columns: repeat(6, 1fr);
+  }
 }

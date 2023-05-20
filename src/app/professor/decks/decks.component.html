@@ -46,7 +46,7 @@
           </div>
         </div>
         <h4 *ngIf="!selectedDeck">Selecione um Baralho para ver detalhes de suas cartas</h4>
-        <div *ngIf="selectedDeck" fxLayout="row wrap" fxLayoutGap="12px grid" style=" padding: 12px; height: 85%; overflow: auto;" >
+        <div *ngIf="selectedDeck" class="grid-container" style=" padding: 12px; height: 85%; overflow: auto;" >
           <div fxLayout="column" *ngIf="selectedDeck.cards?.length == 0">
             <h3>Este baralho ainda não possui cartas.</h3>
             <button mat-raised-button color="primary" (click)="openCardsModal()">
