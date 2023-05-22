@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  endPointHost: 'https://api-timeline-production.up.railway.app/'
+  endPointHost: 'https://crontime-api-okua5jsjja-uc.a.run.app/'
 };
