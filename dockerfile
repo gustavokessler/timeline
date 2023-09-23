@@ -1,13 +1,23 @@
-FROM node:15.4 as build
+FROM node:16.13.2-alpine  AS compile-image
 
-WORKDIR /usr/src/app
-COPY package*.json .
-RUN npm install
+WORKDIR /opt/ng
+COPY package*.json ./
+RUN npm install --legacy-peer-deps
+
+ENV PATH="./node_modules/.bin:$PATH"
+
 COPY . .
-RUN npm run build
 
+ARG BUILD_TARGET=production
 
-FROM nginx:1.19
+RUN ng build --prod
 
-COPY ./nginx/nginx.conf /etc/nginx/nginx.conf
-COPY --from=build /usr/src/app/dist/timeline/ /usr/share/nginx/html/
+FROM nginx:1.16.0-alpine
+
+RUN apk --no-cache add curl
+
+COPY ./nginx/. /etc/nginx
+
+COPY --from=compile-image /opt/ng/dist /usr/share/nginx/html
+
+CMD ["nginx", "-g", "daemon off;"]
