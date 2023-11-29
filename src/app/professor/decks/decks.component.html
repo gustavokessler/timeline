@@ -44,7 +44,7 @@
               Criar nova Carta
             </button>
             <button mat-raised-button color="primary" (click)="openCardsModal()">
-              Adcionar Cartas
+              Adicionar Cartas
             </button>
           </div>
         </div>
@@ -52,9 +52,6 @@
         <div *ngIf="selectedDeck" class="grid-container" style=" padding: 12px; height: 85%; overflow: auto;" >
           <div fxLayout="column" *ngIf="selectedDeck.cards?.length == 0">
             <h3>Este baralho ainda não possui cartas.</h3>
-            <button mat-raised-button color="primary" (click)="openCardsModal()">
-              Adcionar Cartas
-            </button>
           </div>
           <app-card *ngFor="let card of selectedDeck.cards" [card]="card" (removeCard)="removeCardFromDeck($event)" ></app-card>
         </div>
