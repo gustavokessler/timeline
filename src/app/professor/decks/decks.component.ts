@@ -7,6 +7,7 @@ import { AddDeckComponent } from 'src/app/shared/add-deck/add-deck.component';
 import { AuthService } from 'src/app/shared/auth.service';
 import { Deck } from 'src/app/shared/models/deck.model';
 import { DeckService } from '../service/deck.service';
+import { EditDeckComponent } from 'src/app/shared/edit-deck/edit-deck.component';
 import { tap } from 'rxjs/operators';
 
 @Component({
@@ -60,6 +61,13 @@ export class DecksComponent implements OnInit {
     this.deckService.removeCardFromDeck(this.selectedDeck!.id, cardId).pipe(
       tap(() => this.updateDecks())
     ).subscribe()
+  }
+
+  updateDeck(deck: Deck){
+    this.dialogRef.open(EditDeckComponent, {
+      data: deck,
+      width: '480px'
+    })
   }
 
   updateDecks() {

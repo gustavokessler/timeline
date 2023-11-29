@@ -26,6 +26,9 @@
             <mat-card-content>
               <p style="font-size: 12px;">{{deck.description}}</p>
               <p>Total de cartas: {{deck.cards? deck.cards.length : '0'}}</p>
+              <button  style="position: absolute; right: 0; bottom: 0;" mat-icon-button color="primary" (click)="updateDeck(deck)">
+                <mat-icon style=" font-size: 20px;">edit</mat-icon>
+              </button>
             </mat-card-content>
           </mat-card>
           <div style="width: 100%; height: 68px;"></div>

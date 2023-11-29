@@ -1,18 +1,18 @@
 <div fxLayout="column" style="width: 100%; height: 100%;">
-  <h2 *ngIf="deck.name">Editando o Baralho</h2>
-  <h2 *ngIf="!deck.name">Criar novo Baralho</h2>
+<h2 *ngIf="deck.name">Editando o Baralho</h2>
+<h2 *ngIf="!deck.name">Criar novo Baralho</h2>
 
-  <form fxLayout="column" fxFlex="100">
-    <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
-      <mat-label>Nome do Baralho</mat-label>
-      <input matInput placeholder="História completa" [(ngModel)]="deck.name" [ngModelOptions]="{standalone: true}">
-    </mat-form-field>
-    <mat-form-field appearance="outline">
-      <mat-label>Descrição</mat-label>
-      <textarea matInput [(ngModel)]="deck.description" [ngModelOptions]="{standalone: true}" ></textarea>
-    </mat-form-field>
-  </form>
-  <h3 *ngIf="response.error" style="color: brown;">{{response.text}}</h3>
-  <h3 *ngIf="!response.error" style="color: green;">{{response.text}}</h3>
-  <button mat-raised-button color="primary" (click)="createDeck()">Salvar</button>
+<form fxLayout="column" fxFlex="100">
+  <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
+    <mat-label>Nome do Baralho</mat-label>
+    <input matInput placeholder="História completa" [(ngModel)]="deck.name" [ngModelOptions]="{standalone: true}">
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Descrição</mat-label>
+    <textarea matInput [(ngModel)]="deck.description" [ngModelOptions]="{standalone: true}" ></textarea>
+  </mat-form-field>
+</form>
+<h3 *ngIf="response.error" style="color: brown;">{{response.text}}</h3>
+<h3 *ngIf="!response.error" style="color: green;">{{response.text}}</h3>
+<button mat-raised-button color="primary" (click)="createDeck()">Salvar</button>
 </div>

@@ -15,6 +15,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 import { NgModule } from '@angular/core';
+import { EditDeckComponent } from './edit-deck/edit-deck.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NgModule } from '@angular/core';
     AddDeckComponent,
     AddCardComponent,
     AddGameComponent,
-    EditCardComponent
+    EditCardComponent,
+    EditDeckComponent
   ],
   imports: [
     CommonModule,
