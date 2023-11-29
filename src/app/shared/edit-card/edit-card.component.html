@@ -1,0 +1,35 @@
+<div fxLayout="column" style="width: 100%; height: 100%;">
+  <h2>Editar carta</h2>
+
+  <form fxLayout="column" fxFlex="100" style="margin-bottom: 8px;">
+    <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
+      <mat-label>Nome da carta</mat-label>
+      <input matInput placeholder="História completa" [(ngModel)]="card.name" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+
+
+    <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
+      <mat-label>Data</mat-label>
+      <input matInput placeholder="História completa" [(ngModel)]="card.date" [ngModelOptions]="{standalone: true}">
+      <mat-hint>Data do evento, infomar apenas o ano.</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput [(ngModel)]="card.description" [ngModelOptions]="{standalone: true}"></textarea>
+      <mat-hint>Descrição sobre o evento para estimular o aprendizado durante o jogo.</mat-hint>
+    </mat-form-field>
+
+    <mat-form-field fxFlex="100" class="example-full-width" appearance="outline">
+      <mat-label>Link da imagem</mat-label>
+      <input matInput placeholder="Link da imagem" [(ngModel)]="card.image" [ngModelOptions]="{standalone: true}">
+      <mat-hint>Utilizar imagens no formato 2:1 ex: 800x400px. <br>Não somos responsáveis pelos direitos autorais das imagems. Por favor, utilize imagens próprias ou sem
+        direitos autorais.</mat-hint>
+
+    </mat-form-field>
+
+  </form>
+  <h3 *ngIf="response.error" style="color: brown;">{{response.text}}</h3>
+  <h3 *ngIf="!response.error" style="color: green;">{{response.text}}</h3>
+  <button mat-raised-button color="primary" (click)="save()">Salvar</button>
+</div>

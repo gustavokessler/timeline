@@ -1,19 +1,16 @@
-<mat-card *ngIf="card" class="mat-elevation-z8">
+<mat-card *ngIf="card" class="mat-elevation-z8" style="height: 480px;">
 
   <mat-card-header>
-    <mat-card-title>{{card.name}}</mat-card-title>
+    <mat-card-title style="min-height: 40px;">{{card.name}}</mat-card-title>
     <mat-card-subtitle>{{card.date}}</mat-card-subtitle>
   </mat-card-header>
-  <img matCardImage [src]="card.image" style="max-height: 190px;">
-  <mat-card-content style="height: 100px; overflow: auto;">
+  <img matCardImage [src]="card.image" style="height: 190px;">
+  <mat-card-content style="height: 130px; overflow: auto;">
     {{card.description}}
   </mat-card-content>
   <mat-card-actions *ngIf="!addMode" fxLayout="row" fxLayoutAlign="space-between">
-    <button mat-button color="primary">
-      Ler mais
-    </button>
     <div>
-      <button mat-icon-button color="primary">
+      <button mat-icon-button color="primary" (click)="edit()">
         <mat-icon>edit</mat-icon>
       </button>
       <button mat-icon-button color="warn" (click)="removeCardFromDeck()">
@@ -30,7 +27,7 @@
       <mat-icon>done</mat-icon>
     </button>
     <div>
-      <button mat-icon-button color="primary">
+      <button mat-icon-button color="primary" (click)="edit()">
         <mat-icon>edit</mat-icon>
       </button>
     </div>

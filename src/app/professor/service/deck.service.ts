@@ -66,17 +66,26 @@ export class DeckService {
     return this.http.post<any>(environment.endPointHost + 'cards', card)
   }
 
+  updateCard(card: Card) {
+    return this.http.patch<any>(environment.endPointHost + 'cards' + '/' + card.id, {
+      id: card.id,
+      name: card.name,
+      date: card.date,
+      description: card.description,
+      image: card.image
+    })
+}
 
-  getProfessorGames() {
-    const params = new HttpParams()
-      .append('professorId', this.professor!.id);
-      return this.http.get<Game[]>(environment.endPointHost + 'game', { params })
-      
-    }
-    
-    saveGame(game: Game){
-      const params = new HttpParams()
-      .append('professorId', this.professor!.id);
-      return this.http.post(environment.endPointHost + 'game', game, {params} )
-    }
+getProfessorGames() {
+  const params = new HttpParams()
+    .append('professorId', this.professor!.id);
+  return this.http.get<Game[]>(environment.endPointHost + 'game', { params })
+
+}
+
+saveGame(game: Game){
+  const params = new HttpParams()
+    .append('professorId', this.professor!.id);
+  return this.http.post(environment.endPointHost + 'game', game, { params })
+}
 }

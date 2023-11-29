@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 import { Card } from '../models/card.model';
 import { DeckService } from './../../professor/service/deck.service';
+import { EditCardComponent } from '../edit-card/edit-card.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-card',
@@ -18,7 +20,8 @@ export class CardComponent implements OnInit {
   isOnDeck =  false;
 
   constructor(
-    private deckService: DeckService
+    private deckService: DeckService,
+    private dialogRef: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -30,5 +33,12 @@ export class CardComponent implements OnInit {
 
   addToDeck(){
     this.deckService.addCardToDeck(this.deckId!, this.card!.id!).subscribe((res) => this.isOnDeck = true);
+  }
+
+  edit(){
+    this.dialogRef.open(EditCardComponent, {
+      data: this.card,
+      width: '500px'
+    })
   }
 }

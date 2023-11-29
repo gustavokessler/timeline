@@ -32,26 +32,26 @@
 }
 
 
-@media (min-width: 1320px) {
+// @media (min-width: 1320px) {
+//   .grid-container {
+//     grid-template-columns: repeat(3, 1fr);
+//   }
+// }
+
+@media (min-width: 1520px) {
   .grid-container {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
-@media (min-width: 1520px) {
+@media (min-width: 1820px) {
   .grid-container {
     grid-template-columns: repeat(4, 1fr);
   }
 }
 
-@media (min-width: 1820px) {
-  .grid-container {
-    grid-template-columns: repeat(5, 1fr);
-  }
-}
-
 @media (min-width: 2120px) {
   .grid-container {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 }
