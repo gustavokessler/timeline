@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
-import { of } from 'rxjs';
 import { catchError, filter, map, switchMap, tap } from 'rxjs/operators';
+
+import { ActivatedRoute } from '@angular/router';
 import { Card } from '../shared/models/card.model';
 import { Game } from '../shared/models/game.model';
 import { GameService } from './game.service';
 import { HowToPlayComponent } from './how-to-play/how-to-play.component';
+import { MatDialog } from '@angular/material/dialog';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-game',
@@ -131,6 +132,7 @@ export class GameComponent implements OnInit {
   }
 
   gtDate(date1: number, date2: number) {
+    if(date1 === date2) return true
     return +date1 > +date2;
     return new Date(date1).getTime() > new Date(date2).getTime()
   }
