@@ -21,7 +21,12 @@ export class EditCardComponent implements OnInit {
   }
 
   save(){
-    this.cardService.updateCard(this.card).subscribe()
+    this.cardService.updateCard(this.card).subscribe((res) => {
+      this.response.text = 'Carta editada com sucesso.'
+    }, (err) => {
+      this.response.text = 'Erro ao editar carta.'
+      this.response.error = true
+    })
   }
 
 }
