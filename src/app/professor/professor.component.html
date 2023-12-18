@@ -1,13 +1,18 @@
 <mat-toolbar color="primary">
-  <span>Timeline Professor</span>
+  <img src="../../assets/ng-bg.png" style="width: 60px;" alt="">
+  <span>Time Explorer Professor</span>
 </mat-toolbar>
 <mat-drawer-container class="example-container" autosize style="width: 100%; height: calc(100% - 64px);">
-  <mat-drawer opened class="example-sidenav" mode="side" style="min-width: 200px; background-color: #4169e1;" >
+  <mat-drawer fxLayout="column" fxLayoutAlign="center"  opened class="example-sidenav" mode="side" style="min-width: 200px; background-color: #4169e1;" >
     <mat-list role="list">
       <mat-list-item role="listitem" routerLink="decks">Baralhos</mat-list-item>
       <mat-list-item role="listitem" routerLink="game">Jogos</mat-list-item>
       <mat-list-item role="listitem" routerLink="game/login">Jogar</mat-list-item>
     </mat-list>
+
+    <div style="position: absolute; bottom: 0; left: 25px;">
+      <img src="../../assets/ng-bg.png" style="width: 150px;" alt="">
+    </div>
   </mat-drawer>
 
   <mat-drawer-content>
