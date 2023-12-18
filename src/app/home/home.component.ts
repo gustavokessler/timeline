@@ -13,9 +13,17 @@ export class HomeComponent implements OnInit {
   email: string = "";
   password: string = "";
 
+  emailCreate: string = "";
+  passwordCreate: string = "";
+  nameCreate: string = "";
+
+
+
   errorLogin = false;
 
   gameID = '';
+
+  isLogin = true;
 
   constructor(
     private authService: AuthService,
@@ -23,22 +31,28 @@ export class HomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(this.authService.professor){
+    if (this.authService.professor) {
       this.navigateToProfessorModule();
     }
   }
 
-  enterGame(){
+  enterGame() {
     this.router.navigateByUrl('/game?code=' + this.gameID);
   }
 
-  login(){
+  login() {
     this.authService.login(this.email, this.password).subscribe((res) => {
       this.navigateToProfessorModule();
     }, () => this.errorLogin = true)
   }
 
-  navigateToProfessorModule(){
+  create() {
+    this.authService.create(this.emailCreate, this.nameCreate, this.passwordCreate).subscribe((res) => {
+      this.navigateToProfessorModule();
+    }, () => this.errorLogin = true)
+  }
+
+  navigateToProfessorModule() {
     this.router.navigate(['/professor']);
   }
 
